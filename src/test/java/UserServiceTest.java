@@ -34,6 +34,7 @@ public class UserServiceTest {
         }
     }
 
+
     @Test
     public void saveUser() {
         try {
@@ -46,7 +47,9 @@ public class UserServiceTest {
             if (!testName.equals(user.getName())
                     || !testLastName.equals(user.getLastName())
                     || testAge != user.getAge()
-            ) {
+            )
+
+            {
                 Assert.fail("User был некорректно добавлен в базу данных");
             }
 
@@ -54,6 +57,7 @@ public class UserServiceTest {
             Assert.fail("Во время тестирования сохранения пользователя произошло исключение\n" + e);
         }
     }
+
 
     @Test
     public void removeUserById() {
@@ -92,11 +96,10 @@ public class UserServiceTest {
             userService.cleanUsersTable();
 
             if (userService.getAllUsers().size() != 0) {
-                Assert.fail("Метод очищения таблицы пользователей реализован не корректно");
+                Assert.fail("Метод очищения таблицы пользователей реализован некорректно");
             }
         } catch (Exception e) {
             Assert.fail("При тестировании очистки таблицы пользователей произошло исключение\n" + e);
         }
     }
-
 }
